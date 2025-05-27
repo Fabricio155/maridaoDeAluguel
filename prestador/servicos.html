@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços do Prestador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+            text-wrap: wrap;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .adicionar-servico {
+            background-image: -webkit-linear-gradient(
+                233deg,
+                lightgreen,
+                #1c2496,
+                #333b99a4
+            );
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: transform 0.3s ease;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        .adicionar-servico:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <app-header current-page="servicos"></app-header>
+
+    <main>
+        <section-title title="Meus Serviços"></section-title>
+        
+        <section>
+            <div class="servicos-grid">
+                <servico-card 
+                    titulo="Manutenção de Ar Condicionado" 
+                    descricao="Limpeza, verificação e manutenção preventiva de aparelhos de ar condicionado residenciais e comerciais." 
+                    preco="180,00" 
+                    duracao="2 horas"
+                    icone="🔧">
+                </servico-card>
+                
+                <servico-card 
+                    titulo="Reparo Elétrico" 
+                    descricao="Instalação e reparo de tomadas, interruptores, disjuntores e fiação elétrica em geral." 
+                    preco="120,00" 
+                    duracao="1,5 horas"
+                    icone="⚡">
+                </servico-card>
+                
+                <servico-card 
+                    titulo="Instalação de Fechadura" 
+                    descricao="Instalação, substituição e reparo de fechaduras convencionais e eletrônicas." 
+                    preco="150,00" 
+                    duracao="1 hora"
+                    icone="🔒">
+                </servico-card>
+                
+                <servico-card 
+                    titulo="Limpeza Residencial" 
+                    descricao="Limpeza completa de residências, incluindo pisos, janelas, banheiros e cozinha." 
+                    preco="200,00" 
+                    duracao="4 horas"
+                    icone="🧹">
+                </servico-card>
+                
+                <servico-card 
+                    titulo="Reparo Hidráulico" 
+                    descricao="Conserto de vazamentos, desentupimento de pias e ralos, instalação de torneiras e chuveiros." 
+                    preco="140,00" 
+                    duracao="2 horas"
+                    icone="🚿">
+                </servico-card>
+                
+                <servico-card 
+                    titulo="Montagem de Móveis" 
+                    descricao="Montagem e instalação de móveis residenciais e comerciais." 
+                    preco="160,00" 
+                    duracao="3 horas"
+                    icone="🔨">
+                </servico-card>
+            </div>
+            
+            <button class="adicionar-servico">+ Adicionar Novo Serviço</button>
+        </section>
+    </main>
+
+    <script src="components/header.js"></script>
+    <script src="components/section-title.js"></script>
+    <script src="components/servico-card.js"></script>
+    <script src="components/app.js"></script>
+</body>
+</html>

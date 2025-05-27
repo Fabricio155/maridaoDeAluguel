@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos do Prestador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+            text-wrap: wrap;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .filtros-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filtro-btn {
+            background-image: -webkit-linear-gradient(
+                233deg,
+                #f5f5f5,
+                #ffffff,
+                #f0f8f0
+            );
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        .filtro-btn.active {
+            background-image: -webkit-linear-gradient(
+                233deg,
+                lightgreen,
+                #1c2496,
+                #333b99a4
+            );
+            color: white;
+            border-color: transparent;
+        }
+        
+        .calendario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        .calendario-titulo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1c2496;
+        }
+        
+        .calendario-navegacao {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .calendario-btn {
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .calendario-btn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <app-header current-page="agendamentos"></app-header>
+
+    <main>
+        <section-title title="Meus Agendamentos"></section-title>
+        
+        <section>
+            <div class="filtros-container">
+                <button class="filtro-btn active">Todos</button>
+                <button class="filtro-btn">Pendentes</button>
+                <button class="filtro-btn">Confirmados</button>
+                <button class="filtro-btn">Concluídos</button>
+                <button class="filtro-btn">Cancelados</button>
+            </div>
+            
+            <div class="calendario-header">
+                <div class="calendario-titulo">Hoje, 27 de Maio de 2025</div>
+                <div class="calendario-navegacao">
+                    <button class="calendario-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="calendario-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <agendamento-card 
+                nome="Ana Costa" 
+                servico="Manutenção de ar condicionado" 
+                horario="16:00"
+                status="confirmado">
+            </agendamento-card>
+            
+            <agendamento-card 
+                nome="Lucas Sauza" 
+                servico="Reparo elétrico" 
+                horario="16:00"
+                status="pendente">
+            </agendamento-card>
+            
+            <agendamento-card 
+                nome="Marlana Lima" 
+                servico="Instalação de fechadura" 
+                horario="06:00"
+                status="confirmado">
+            </agendamento-card>
+            
+            <agendamento-card 
+                nome="Pedro Martins" 
+                servico="Limpeza residencial" 
+                horario="11:30"
+                status="pendente">
+            </agendamento-card>
+        </section>
+        
+        <section-title title="Próximos Dias"></section-title>
+        
+        <section>
+            <div class="calendario-header">
+                <div class="calendario-titulo">Amanhã, 28 de Maio de 2025</div>
+            </div>
+            
+            <agendamento-card 
+                nome="Roberto Almeida" 
+                servico="Reparo hidráulico" 
+                horario="09:30"
+                status="confirmado">
+            </agendamento-card>
+            
+            <agendamento-card 
+                nome="Carla Mendes" 
+                servico="Montagem de móveis" 
+                horario="14:00"
+                status="pendente">
+            </agendamento-card>
+        </section>
+    </main>
+
+    <script src="components/header.js"></script>
+    <script src="components/section-title.js"></script>
+    <script src="components/agendamento-card.js"></script>
+    <script src="components/app.js"></script>
+</body>
+</html>

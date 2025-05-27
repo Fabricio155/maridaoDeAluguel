@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edição de Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+            text-wrap: wrap;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <app-header current-page="perfil"></app-header>
+
+    <main>
+        <section-title title="Edição de Perfil"></section-title>
+        
+        <section>
+            <profile-form 
+                nome="Carlos Silva" 
+                email="carlos.silva@email.com" 
+                telefone="(11) 98765-4321" 
+                endereco="Av. Paulista, 1000" 
+                foto="https://randomuser.me/api/portraits/men/75.jpg"
+                especialidade="Manutenção Geral"
+                descricao="Profissional com mais de 10 anos de experiência em manutenção residencial e comercial.">
+            </profile-form>
+        </section>
+    </main>
+
+    <script src="components/header.js"></script>
+    <script src="components/section-title.js"></script>
+    <script src="components/profile-form.js"></script>
+    <script src="components/app.js"></script>
+</body>
+</html>

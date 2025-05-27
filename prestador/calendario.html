@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário do Prestador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+            text-wrap: wrap;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .adicionar-evento {
+            background-image: -webkit-linear-gradient(
+                233deg,
+                lightgreen,
+                #1c2496,
+                #333b99a4
+            );
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: transform 0.3s ease;
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        .adicionar-evento:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <app-header current-page="calendario"></app-header>
+
+    <main>
+        <section-title title="Meu Calendário"></section-title>
+        
+        <section>
+            <calendario-grid 
+                mes="Maio" 
+                ano="2025" 
+                dia-atual="27"
+                eventos='[
+                    {"dia": 5, "texto": "João Silva - 09:00", "id": "1", "cancelado": false},
+                    {"dia": 5, "texto": "Maria Oliveira - 14:30", "id": "2", "cancelado": false},
+                    {"dia": 7, "texto": "Roberto Almeida - 10:00", "id": "3", "cancelado": false},
+                    {"dia": 12, "texto": "Carla Mendes - 11:30", "id": "4", "cancelado": false},
+                    {"dia": 15, "texto": "Lúcia Torres - 15:00", "id": "5", "cancelado": false},
+                    {"dia": 19, "texto": "Fernando Santos - 08:30", "id": "6", "cancelado": false},
+                    {"dia": 19, "texto": "Juliana Pereira - 13:00", "id": "7", "cancelado": true},
+                    {"dia": 23, "texto": "Ricardo Gomes - 16:30", "id": "8", "cancelado": false},
+                    {"dia": 26, "texto": "Beatriz Lima - 10:30", "id": "9", "cancelado": false},
+                    {"dia": 27, "texto": "Ana Costa - 16:00", "id": "10", "cancelado": false},
+                    {"dia": 27, "texto": "Lucas Sauza - 16:00", "id": "11", "cancelado": false},
+                    {"dia": 27, "texto": "Marlana Lima - 06:00", "id": "12", "cancelado": false},
+                    {"dia": 27, "texto": "Pedro Martins - 11:30", "id": "13", "cancelado": false},
+                    {"dia": 28, "texto": "Roberto Almeida - 09:30", "id": "14", "cancelado": false},
+                    {"dia": 28, "texto": "Carla Mendes - 14:00", "id": "15", "cancelado": false}
+                ]'>
+            </calendario-grid>
+            
+            <button class="adicionar-evento">+ Adicionar Novo Evento</button>
+        </section>
+    </main>
+
+    <script src="components/header.js"></script>
+    <script src="components/section-title.js"></script>
+    <script src="components/calendario-grid.js"></script>
+    <script src="components/app.js"></script>
+</body>
+</html>
