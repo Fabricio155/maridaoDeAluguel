@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="components/pgInicial/pgInicial.css">
+    <link rel="stylesheet" href="components/pgInicial/1maisPedidos.css">
+</head>
+<body>
+    <header>
+        <!-- ====================================================== USER -->
+        <div class="user-image">
+            <img src="img/Imagem do WhatsApp de 2025-02-04 à(s) 18.54.13_3faa34fa.jpg" alt="img-user">
+        </div>
+
+        <div class="user-ola">
+            <p>Bem vindo</p>
+            <h3 id="nameUser">usuario</h3>
+        </div>
+
+        <div class="menu">
+            <button class="mobileBtn" onclick="toggleMenu()"><img src="img/icons8-cardápio-48.png" alt=""></button>
+            <p>Menu</p>
+        </div>
+        <!-- ====================================================== USER fim -->
+
+        <nav class="header-content hidden" id="menu">
+            <!-- ====================================================== Lista de serviços header -->
+            <div class="serviços">
+                <li id="instalação" class="li-instalacao">Instalação
+                    <div id="subMenu-instalação" class="subMenu-instalação hidden">
+                        <a href="">Instalação de Eletrônicos</a>
+                        <a href="">Instalador de TV Digital</a>
+                        <a href="">Segurança Eletrônica</a>
+                    </div>
+                </li>
+            
+                <li id="reformas" class="li-reparos"> Reformas e Reparo
+                    <div id="subMenu-reparos" class="subMenu-reparos hidden">
+                        <a href="">Encanador</a>
+                        <a href="">Eletricista</a>
+                        <a href="">Gás</a>
+                        <a href="">Gesso e Drywall</a>            
+                        <a href="">Pavimentação</a>            
+                        <a href="">Pintor</a>           
+                        <a href="">Serralheria e Solda</a>
+                    </div>
+                </li>
+
+                <li id="gerais" class="li-gerais">Serviços gerais
+                    <div id="subMenu-gerais" class="subMenu-gerais hidden">
+                        <a href="">Chaveiro</a>
+                        <a href="">Detetizador</a>
+                        <a href="">Desentupidor</a>
+                        <a href="">Desinfecção</a>
+                        <a href="">Impermeabilizador</a>
+                        <a href="">Marceneiro</a>
+                        <a href="">Serralheria e Solda</a>
+                    </div>
+                </li>
+            </div>
+            <!-- ====================================================== Lista de serviços header fim -->
+        </nav>
+    </header>
+    
+    <div class="dashboard">
+        <div class="mais-pedidos">
+            <div class="title">
+                <h3 class="maish3"> Serviços mais pedidos</h3> 
+                <p>Precisa de um profissional confiável? Estes são os serviços mais solicitados para facilitar o seu dia a dia:</p>
+            </div>
+
+            <div class="eletricista">
+                <div class="img">
+                    <img class="imgteste" src="../../img/curto-circuito.png" alt="circuito">
+                </div>
+                <div class="ele-content">
+                    <h3>Eletricista</h3>
+                    <p>Precisa de um eletricista para sua casa? Conte com um profissional qualificado para garantir segurança e eficiência na instalação, manutenção e reparo da parte elétrica.</p>
+                    <a href="components/home/home.html">Pedir Orçamento</a>
+                </div>
+            </div>
+
+            <div class="pedreiro">
+                <div class="img">
+                    <img src="../../img/tijolo.png" alt="circuito">
+                </div>
+                <div class="ele-content">
+                    <h3>Pedreiro</h3>
+                    <p>Construção e reparos com qualidade e segurança! Um pedreiro profissional realiza desde pequenos consertos até grandes reformas.</p>
+                    <a href="components/home/home.html">Pedir Orçamento</a>
+                </div>
+            </div>
+
+            <div class="pedreiro">
+                <div class="img">
+                    <img src="../../img/rolo-de-pintura.png" alt="circuito">
+                </div>
+                <div class="ele-content">
+                    <h3>Pintor</h3>
+                    <p>Renove seu ambiente com um acabamento impecável! Um pintor profissional garante qualidade e durabilidade na pintura da sua casa ou empresa.</p>
+                    <a href="components/home/home.html">Pedir Orçamento</a>
+                </div>
+            </div>
+
+            <div class="pedreiro">
+                <div class="img">
+                    <img src="../../img/chaveiro.png" alt="circuito">
+                </div>
+                <div class="ele-content">
+                    <h3>Chaveiro</h3>
+                    <p>Segurança e praticidade para sua casa, empresa ou veículo! Um chaveiro profissional resolve problemas com rapidez e eficiência.</p>
+                    <a href="components/home/home.html">Pedir Orçamento</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="formas-pagamento">
+            <div class="title-formas">
+                <h3 class="maish3">Pagamento pelo APP</h3>
+            </div>
+            <div class="pagamento-content">
+                <p>Facilitamos o seu pagamento! Pague direto pelo nosso app de forma rápida, segura e sem complicação. Escolha o serviço, contrate e finalize o pagamento tudo em um só lugar!</p>
+                <p class="pag-p"> <img src="../../img/icons8-foto-80.png" alt=""> <br>Pague no Pix</p>
+                <p class="pag-p"><img src="../../img/sem-contato.png" alt=""><br> Pague no Crédito</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Recomendações de prestadores de serviços</h2>
+    <div id="avaliacoes-container">
+        <div id="lista-avaliacoes">
+            <!-- As avaliações serão inseridas aqui dinamicamente -->
+        </div>
+    </div>
+    <h3 class="maish3">Historico de Pedidos</h3>
+<div class="historico">
+    <!-- O histórico será carregado aqui pelo JavaScript -->
+</div>
+
+<script src="components/pgInicial/historico.js"></script>
+<script src="components/pgInicial/pagInicial.js"></script>
+</body>
+</html>

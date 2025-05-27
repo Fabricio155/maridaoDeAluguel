@@ -1,10 +1,139 @@
+/* Header styles */
+.user-image {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 13px;
+    color: #0aaea8d9;
+    font-weight: 600;
+    letter-spacing: 0,5px;
+}
 
-.formas-pagamento{
+/* Dashboard styles */
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+.title {
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #1c249637,
+        #1c41961e
+    );
+    padding: 13px;
+    font-size: 1.3vw;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.607);
+}
+
+.mais-pedidos {
+    display: grid;
+    grid-template-columns: 410px 410px;
+    width: 100%;
+    gap: 13px;
+    margin: 13px;
+    width: 67%;
+    border-radius: 23px;
+}
+
+.maish3 {
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #1c2496,
+        #1c2496,
+        lightgreen
+    );
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin: 13px;
+}
+
+.eletricista, .pedreiro {
+    width: 100%;
+    display: flex;
+    padding: 13px;
+    justify-content: space-around;
+    align-items: center;
+    border-top-right-radius: 33px;
+    border-bottom-right-radius: 33px;
+    box-shadow: 
+    inset .1em .1em .2em rgba(15, 3, 65, 0.203),
+    inset -.1em -.1em .2em rgba(15, 3, 65, 0.288);
+}
+
+.eletricista a, .pedreiro a {
+    text-decoration: none;
+}
+
+.eletricista:hover, .pedreiro:hover {
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #1c24963e,
+        #1c24963f,
+        rgba(144, 238, 144, 0.352)
+    );
+}
+
+.ele-content {
+    display: flex;
+    flex-direction: column;
+    width: 89px;
+    font-size: .99vw;
+    letter-spacing: .5px;
+    text-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content:space-around;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.ele-content p {
+    margin-bottom: 13px;
+}
+
+.ele-content h3 {
+    margin-bottom: 3px;
+    color: #060d719a;
+}
+
+.pedreiro img, .eletricista img {
+    height: 6vw;
+    position: absolute;
+    animation: move 3.3s infinite alternate forwards ease-in-out;
+}
+
+@keyframes move {
+    0% { top: 0; }
+    50% { top: 7%; }
+    100% { top: 0; }
+}
+
+.img {
+    height: 7vw;
+    margin-right: 3px;
+    width: 10vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+    inset .1em .1em .5em rgba(3, 57, 98, 0.103);
+    border-radius: 50%;
+}
+
+/* Payment methods styles */
+.formas-pagamento {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.title-formas{
+
+.title-formas {
     display: flex;
     margin-top: 13px;
     height: 4vw;
@@ -17,11 +146,13 @@
     border-radius: 3px;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.607);
 }
-.title-formas h3{
+
+.title-formas h3 {
     margin: auto;
     color: antiquewhite;
 }
-.pagamento-content{
+
+.pagamento-content {
     margin: 13px;
     display: flex;
     flex-direction: column;
@@ -32,41 +163,377 @@
     box-shadow: 
     inset .1em .1em .2em rgba(15, 3, 65, 0.203),
     inset -.1em -.1em .2em rgba(15, 3, 65, 0.288);
-
 }
-.pagamento-content img{
+
+.pagamento-content img {
     height: 3vw;
 }
-.pagamento-content p{
+
+.pagamento-content p {
     text-align: center;
     margin-left: 13px;
     align-items: center;
-  
 }
+
+/* Submenu styles */
+/* =========================================================== INSTALAÇÃO */
+
+.subMenu-instalação{
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #055243,
+        #143f78,
+        #060a35
+    );    
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: -65%;
+    top: 110%;
+    height: 0;
+    width: 200px;
+    font-size: 1vw;
+    border-radius: 13px;
+    text-align: center;
+    overflow: hidden;
+    transition: .5s ease-in-out;
+    box-shadow: 
+    0px 0px 7px rgba(0, 0, 0, 0.735),
+    inset .1em .1em 1em black,
+    inset -.6em -.1em 1em rgb(27, 90, 161);
+    opacity: 95%;
+    z-index: 1;
+}
+.li-instalacao:hover .subMenu-instalação{
+    height: 15vw;
+}
+.li-instalacao{
+    position: relative;
+}
+
+.subMenu-instalação a{
+    text-decoration: none;
+    color: aliceblue;
+    margin-top: 33px;
+}
+
+.subMenu-instalação a:hover{
+    color: lightgreen;
+    font-size: 1.1vw;
+    transition: .3s;
+
+}
+
+/* ============================================================ REPAROS */
+.menu{
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 13px;
+    color: #0aaea8d9;
+    font-weight: 600;
+    letter-spacing: 0,5px;
+}
+.subMenu-reparos{
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #055243,
+        #143f78,
+        #060a35
+    );    
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: -16%;
+    top: 110%;
+    height: 0;
+    width: 200px;
+    overflow: hidden;
+    font-size: 1vw;
+    border-radius: 13px;
+    text-align: center;
+    transition: .5s;
+    box-shadow: 
+    0px 0px 7px rgba(0, 0, 0, 0.735),
+    inset .1em .1em 1em black,
+    inset -.6em -.1em 1em rgb(27, 90, 161);
+    opacity: 95%;
+
+}
+.li-reparos{
+    position: relative;
+}
+.li-reparos:hover .subMenu-reparos{
+    height: 20vw;
+}
+.subMenu-reparos a{
+    text-decoration: none;
+    color: aliceblue;
+    margin-top: 23px;
+}
+.subMenu-reparos a:hover{
+    color: lightgreen;
+    font-size: 1.1vw;
+    transition: .3s;
+}
+
+
+
+/* ============================================================ GERAIS */
+
+.subMenu-gerais{
+    background-image: -webkit-linear-gradient(
+        233deg,
+        #055243,
+        #143f78,
+        #060a35
+    );    
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: -33.1%;
+    top: 110%;
+    height: 0;
+    width: 200px;
+    overflow: hidden;
+    font-size: 1vw;
+    border-radius: 13px;
+    text-align: center;
+    transition: .5s;
+    box-shadow: 
+    0px 0px 7px rgba(0, 0, 0, 0.735),
+    inset .1em .1em 1em black,
+    inset -.6em -.1em 1em rgb(27, 90, 161);
+    opacity: 95%;
+
+}
+.li-gerais{
+    position: relative;
+}
+.li-gerais:hover .subMenu-gerais{
+    height: 20vw;
+}
+.subMenu-gerais a{
+    text-decoration: none;
+    height: 100%;
+    color: aliceblue;
+    margin-top: 23px;
+}
+.subMenu-gerais a:hover{
+    color: lightgreen;
+    font-size: 1.1vw;
+    transition: .3s;
+}
+
 @media screen and (max-width: 480px){
-    .formas-pagamento{
+    .subMenu-instalação{
+        position: absolute;
+        right: 100%;
+        font-size: 2vw;
+        z-index: 1;
+    }
+    .li-instalacao:hover .subMenu-instalação{
+        height: 55vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;
+    }
+
+    .li-reparos:hover .subMenu-reparos{
+        height: 85vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;        
+    }
+    .subMenu-reparos{
+        position: absolute;
+        right: 100%;
+        font-size: 2vw;
+        z-index: 1;
+    }
+    .li-gerais:hover .subMenu-gerais{
+        height: 100vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;        
+    }
+    .subMenu-gerais{
+        position: absolute;
+        top: -250%;
+        right: 130%;
+        font-size: 2vw;
+        z-index: 1;
+    }
+    .menu p{
+        opacity: 0;
+    }
+    
+    .subMenu-instalação a:hover{
+        font-size: 4vw;
+    }
+    .subMenu-reparos a:hover{
+        font-size: 4vw;
+
+    }
+
+}
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .mais-pedidos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: none;
+        width: 89%;
+    }
+
+    .title {
+        height: 50vw;
+        font-size: 4vw;
+    }
+
+    .eletricista, .pedreiro {
+        height: 100vw;
+        flex-direction: column;
+        border-radius: 33px;
+    }
+
+    .eletricista img, .pedreiro img {
+        height: 25vw;   
+    }
+
+    .ele-content {
+        font-size: 5vw;
+        margin-top: 72px;
+    }
+
+    .formas-pagamento {
         width: 89%;
         height: 100vw;
         margin: auto;
         text-wrap: wrap;
         font-size: 1vw;
     }
-    .title-formas{
+
+    .title-formas {
         height: 15vw;
         width: 100%;
         font-size: 5vw;
     }
-    .pagamento-content{
+
+    .pagamento-content {
         height: 150vw;
         font-size: 4vw;
     }
-    .pagamento-content img{
+
+    .pagamento-content img {
         height: 10vw;
     }
-    .pagamento-content p{
-        text-align: center;
-        margin-left: 13px;
-        align-items: center;
-      
+
+    .subMenu-instalação {
+        position: absolute;
+        right: 100%;
+        font-size: 2vw;
+        z-index: 1;
     }
+
+    .li-instalacao:hover .subMenu-instalação {
+        height: 55vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;
+    }
+
+    .li-reparos:hover .subMenu-reparos {
+        height: 85vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;        
+    }
+
+    .subMenu-reparos {
+        position: absolute;
+        right: 100%;
+        font-size: 2vw;
+        z-index: 1;
+    }
+
+    .li-gerais:hover .subMenu-gerais {
+        height: 100vw;
+        font-size: 3.9vw;
+        background-color: #060a35;
+        opacity: 100%;
+        text-wrap: wrap;        
+    }
+
+    .subMenu-gerais {
+        position: absolute;
+        top: -250%;
+        right: 130%;
+        font-size: 2vw;
+        z-index: 1;
+    }
+
+    .menu p {
+        opacity: 0;
+    }
+    
+    .subMenu-instalação a:hover {
+        font-size: 4vw;
+    }
+
+    .subMenu-reparos a:hover {
+        font-size: 4vw;
+    }
+}
+
+.historico{
+    display: grid;
+    grid-template-columns: 333px 333px 333px;
+    margin: auto;
+    justify-content: space-around;
+    overflow-x: hidden;
+}
+.pedido-info{
+    background-image:-webkit-linear-gradient(
+        233deg,
+        rgba(10, 15, 78, 0.224),
+        rgba(13, 126, 164, 0.409)
+    );
+    height: 22vw;
+    padding: 13px;
+    margin: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 33px;
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.468),
+    inset .5em .5em 1em rgba(1, 7, 44, 0.475),
+    inset -.5em -.5em 1em rgba(8, 14, 188, 0.573);
+}
+.pedido-info p{
+    color: rgba(9, 14, 67, 0.927);
+}
+.pedido-info button{
+    width: 10vw;
+    height: 3vw;
+    margin: 13px auto;
+    border-radius: 33px;
+    border: none;
 }

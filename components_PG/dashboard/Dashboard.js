@@ -4,7 +4,7 @@ class Dashboard extends HTMLElement {
         super();
 
         
-        fetch('components/pgInicial/pagInicial.html')
+        fetch('components_PG/dashboard/Dashboard.html')
         .then(response => response.text())
         .then(text => {
             this.innerHTML = text
@@ -14,4 +14,4 @@ class Dashboard extends HTMLElement {
 
 }
 
-customElements.define('app-pagInicial', pagInicial)
+customElements.define('app-dashboard', Dashboard)
