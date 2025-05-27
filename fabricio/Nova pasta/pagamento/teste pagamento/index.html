@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Escolha a forma de pagamento</h1>
+
+  <div class="payment-options">
+    <button onclick="selectPayment('pix')">PIX</button>
+    <button onclick="selectPayment('credit')">Cartão de Crédito</button>
+  </div>
+
+  <div class="pix-qr">
+    <h2>QR Code para pagamento</h2>
+    <div id="qrcode"></div>
+  </div>
+
+  <div class="payment-form">
+    <h2>Dados do Cartão</h2>
+    <input type="text" id="cardNumber" placeholder="Número do cartão">
+    <input type="text" id="cardExpiry" placeholder="Validade (MM/AA)">
+    <input type="text" id="cardCvv" placeholder="CVV">
+    <button onclick="payWithCard()">Pagar</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
