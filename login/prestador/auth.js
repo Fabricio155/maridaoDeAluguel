@@ -1,13 +1,13 @@
 // Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAtICp8XY7GIvSD_8-FM7HvzfwzidoC0pk",
-  authDomain: "loginusuariomaridao.firebaseapp.com",
-  projectId: "loginusuariomaridao",
-  storageBucket: "loginusuariomaridao.appspot.com",
-  messagingSenderId: "210600981632",
-  appId: "1:210600981632:web:01efef88f9669faa25a265"
+  apiKey: "AIzaSyAk2mqVRmeZ47Y4WPOkgdzYFvV83FB_lJ8",
+  authDomain: "loginprestadormaridao.firebaseapp.com",
+  projectId: "loginprestadormaridao",
+  storageBucket: "loginprestadormaridao.firebasestorage.app",
+  messagingSenderId: "717113731396",
+  appId: "1:717113731396:web:7f8d7d7839d537c9580f11",
+  measurementId: "G-FPQPJHZKVE"
 };
-
 // Inicialização do Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       try {
         await login(email, password);
-        window.location.href = '../pg.html';
+        window.location.href = '../../prestador/painel.html';
       } catch (error) {
         console.error("Erro no login:", error);
         alert(error.message);
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       try {
         await signUp(email, password);
-        window.location.href = '../pg.html';
+        window.location.href = '../../prestador/painel.html';
       } catch (error) {
         console.error("Erro no cadastro:", error);
         alert(error.message);
