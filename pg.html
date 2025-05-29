@@ -22,6 +22,20 @@
     <!-- Links-------------------------------------------------------------------->
 
     <title>Maridão de Aluguel </title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+
+          <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAtICp8XY7GIvSD_8-FM7HvzfwzidoC0pk",
+        authDomain: "loginusuariomaridao.firebaseapp.com",
+        projectId: "loginusuariomaridao",
+        storageBucket: "loginusuariomaridao.appspot.com",
+        messagingSenderId: "210600981632",
+        appId: "1:210600981632:web:01efef88f9669faa25a265"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
@@ -33,6 +47,9 @@
        <app-recomendacoes-servicos></app-recomendacoes-servicos>
        <app-pgInicial></app-pgInicial>
     </main>
+
+
+
 
     <script src="components_PG/dashboard/Dashboard.js"></script>
     <script src="components_PG/menu/Menu.js"></script>
