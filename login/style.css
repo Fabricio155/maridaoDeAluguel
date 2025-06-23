@@ -1,0 +1,170 @@
+/* Estilos para o dashboard em telas maiores (padrão) */
+.dashboard {
+    display: flex; /* Assumindo que você quer .mais-pedidos e .formas-pagamento lado a lado em telas maiores */
+    flex-direction: row; /* Ou o padrão, se não estiver definido */
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px; /* Espaçamento entre as seções */
+}
+
+.mais-pedidos {
+    flex: 2; /* Ocupa mais espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eletricista, .pedreiro { /* Aplicar a todos os cartões de serviço */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.eletricista .img, .pedreiro .img {
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: 100px; /* Tamanho fixo para a imagem em desktop */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eletricista .img img, .pedreiro .img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.ele-content {
+    flex-grow: 1;
+}
+
+.formas-pagamento {
+    flex: 1; /* Ocupa menos espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pagamento-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+}
+
+.pag-p {
+    text-align: center;
+    flex: 1 1 45%; /* Permite que cada item ocupe quase metade da largura, quebrando para a próxima linha se necessário */
+    min-width: 120px; /* Largura mínima para cada item de pagamento */
+}
+
+.pag-p img {
+    max-width: 60px;
+    height: auto;
+}
+
+
+/* ============================================================================= RESPONSIVIDADE */
+
+@media screen and (max-width: 900px) {
+    /* Ajustes para telas de tablet e menores */
+    .dashboard {
+        flex-direction: column; /* Empilha as seções .mais-pedidos e .formas-pagamento */
+        align-items: center;
+        padding: 15px;
+        gap: 30px;
+    }
+
+    .mais-pedidos, .formas-pagamento {
+        width: 95%; /* Ocupa quase toda a largura disponível */
+        max-width: 600px; /* Limita a largura máxima para não ficar muito esticado em tablets */
+    }
+
+    .mais-pedidos .title, .formas-pagamento .title-formas {
+        text-align: center;
+    }
+
+    .eletricista, .pedreiro {
+        flex-direction: column; /* Empilha imagem e conteúdo nos cartões de serviço */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .eletricista .img, .pedreiro .img {
+        width: 120px; /* Aumenta um pouco o tamanho da imagem */
+        height: 120px;
+        margin-bottom: 10px; /* Espaçamento entre imagem e texto */
+    }
+
+    .ele-content h3 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+
+    .ele-content p {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+
+    .pagamento-content {
+        flex-direction: column; /* Empilha os métodos de pagamento */
+        align-items: center;
+    }
+
+    .pag-p {
+        width: 100%; /* Cada método de pagamento ocupa a largura total */
+        margin-bottom: 15px;
+    }
+
+    .pag-p img {
+        max-width: 80px; /* Aumenta o ícone de pagamento */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Ajustes para telas de celular pequenas */
+    .dashboard {
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .mais-pedidos, .formas-pagamento {
+        width: 100%; /* Ocupa toda a largura */
+        padding: 10px;
+    }
+
+    .maish3 {
+        font-size: 1.3em;
+    }
+
+    .mais-pedidos p, .formas-pagamento p {
+        font-size: 0.9em;
+    }
+
+    .eletricista .img, .pedreiro .img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .ele-content h3 {
+        font-size: 1.3em;
+    }
+
+    .ele-content p {
+        font-size: 0.85em;
+    }
+
+    .pag-p img {
+        max-width: 70px;
+    }
+}
