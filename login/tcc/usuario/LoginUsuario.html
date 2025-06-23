@@ -3,22 +3,21 @@
 <head>  
   <meta charset="UTF-8">
   <title>Login Usuario</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    input, button { margin: 5px 0; padding: 8px; width: 300px; }
-    .message { margin-top: 10px; color: green; }
-    .error { margin-top: 10px; color: red; }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h2>Login Usuario</h2>
-  
-  <input type="email" id="email" placeholder="Email"><br>
-  <input type="password" id="password" placeholder="Senha"><br>
-  <button onclick="loginUsuario()">Entrar</button>
+  <div class="login-container">
+    <h2>Login Usuario</h2>
+    
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Senha"><br>
+    <button onclick="loginUsuario()">Entrar</button>
 
-  <div id="response" class="message"></div>
-  <div id="error" class="error"></div>
-  </body>,
+    <div id="response" class="message"></div>
+    <div id="error" class="error"></div>
+  </div>
+  
   <script src="frontusuario.js"></script>
+</body>
 </html>

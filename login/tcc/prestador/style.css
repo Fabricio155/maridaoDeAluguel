@@ -1,0 +1,109 @@
+/* GERAL */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(144deg, lightgreen, #020a7d, #101983b4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* CONTAINER DO FORMULÁRIO */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #020a7d;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* CAMPOS DE INPUT */
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #020a7d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(2, 10, 125, 0.3);
+}
+
+/* BOTÃO */
+button {
+    background-color: #020a7d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1c2496;
+}
+
+/* MENSAGENS */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e6ffe6;
+    color: green;
+    border: 1px solid green;
+    display: none;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffe6e6;
+    color: red;
+    border: 1px solid red;
+    display: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+}
