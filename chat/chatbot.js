@@ -3,7 +3,7 @@ const { Client } = require('whatsapp-web.js');
 const client = new Client();
 
 client.on('qr', qr => {
-    qrcode.generate(qr, {small: true});
+    qrcode.generate(qr, { small: true });
 });
 
 client.on('ready', () => {
@@ -16,6 +16,15 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 const userFlows = {};
 const servicos = ['elétrica', 'pedreiro', 'chaveiro', 'pintor', 'hidráulica'];
+
+// Lista de prestadores fictícios
+const prestadores = [
+    'Carlos Souza',
+    'Ana Martins',
+    'João Pereira',
+    'Mariana Silva',
+    'Rafael Oliveira'
+];
 
 client.on('message', async msg => {
     const from = msg.from;
@@ -52,13 +61,20 @@ client.on('message', async msg => {
 
     if (state.step === 'pedirEndereco') {
         const endereco = msg.body.trim();
-        // Validação simples: endereço com pelo menos 5 caracteres
         if (endereco.length < 5) {
             await client.sendMessage(from, 'Endereço inválido. Por favor, informe um endereço completo.');
             return;
         }
-        // Confirmação final
-        await client.sendMessage(from, `Você pediu ${state.servico} com a seguinte descrição: "${state.descricao}".\nUm prestador próximo ao endereço "${endereco}" estará a caminho.`);
+
+        // Escolhe aleatoriamente um prestador da lista
+        const prestador = prestadores[Math.floor(Math.random() * prestadores.length)];
+
+        await client.sendMessage(from, 
+            `Você pediu *${state.servico}* com a seguinte descrição:\n"${state.descricao}".\n` +
+            `Um prestador próximo ao endereço "${endereco}" será acionado.\n\n` +
+            `✅ *Após o pagamento ser concluído, ${prestador} estará a caminho.*`
+        );
+
         delete userFlows[from];
         return;
     }

@@ -10,8 +10,7 @@ app.use(cors());
 
 const port = 3000;
 
-
-mongoose.connect('mongodb+srv://Maridodealuguel-api:upy3EEzD4Whgqf9l@maridodealuguel-api.qytwyl6.mongodb.net/?retryWrites=true&w=majority&appName=Maridodealuguel-api')
+mongoose.connect('mongodb+srv://Maridodealuguel-api:FIyT3CQnRtN5IzC9@maridodealuguel-api.qytwyl6.mongodb.net/?retryWrites=true&w=majority&appName=Maridodealuguel-api')
   .then(() => console.log('Conectado ao MongoDB'))
   .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 
@@ -33,7 +32,6 @@ const Prestador = mongoose.model('Prestador', {
   cnpj: String
 });
 
-
 function autenticarToken(req, res, next) {
   const token = req.headers['authorization'];
   if (!token) return res.status(401).send({ error: 'Token não informado' });
@@ -46,7 +44,7 @@ function autenticarToken(req, res, next) {
   });
 }
 
-
+// Rotas Usuário
 app.get('/usuario', async (req, res) => {
   try {
     const usuarios = await Usuario.find();
@@ -105,7 +103,7 @@ app.delete('/usuario/:id', async (req, res) => {
   }
 });
 
-
+// Rotas Prestador
 app.get('/prestador', async (req, res) => {
   try {
     const prestadores = await Prestador.find();
@@ -164,7 +162,7 @@ app.delete('/prestador/:id', async (req, res) => {
   }
 });
 
-
+// Login Prestador
 app.post('/login/prestador', async (req, res) => {
   const { email, password } = req.body;
 
@@ -188,7 +186,7 @@ app.post('/login/prestador', async (req, res) => {
   }
 });
 
-
+// Login Usuário
 app.post('/login/usuario', async (req, res) => {
   const { email, password } = req.body;
 
@@ -212,12 +210,12 @@ app.post('/login/usuario', async (req, res) => {
   }
 });
 
-
+// Rota protegida
 app.get('/perfil', autenticarToken, (req, res) => {
   res.send('Bem-vindo ao perfil protegido!');
 });
 
-
+// Inicialização
 app.listen(port, () => {
   console.log(`API rodando na porta ${port}`);
 });
