@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(express.json());
@@ -8,10 +10,11 @@ app.use(cors());
 
 const port = 3000;
 
-// Conexão com o MongoDB
-mongoose.connect('mongodb+srv://Maridodealuguel-api:93Sr8E3jP8ZS6I0w@maridodealuguel-api.qytwyl6.mongodb.net/?retryWrites=true&w=majority&appName=Maridodealuguel-api');
 
-// Modelos
+mongoose.connect('mongodb+srv://Maridodealuguel-api:upy3EEzD4Whgqf9l@maridodealuguel-api.qytwyl6.mongodb.net/?retryWrites=true&w=majority&appName=Maridodealuguel-api')
+  .then(() => console.log('Conectado ao MongoDB'))
+  .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
+
 const Usuario = mongoose.model('Usuario', {
   name: String,
   email: String,
@@ -30,7 +33,20 @@ const Prestador = mongoose.model('Prestador', {
   cnpj: String
 });
 
-// ROTAS - USUÁRIO
+
+function autenticarToken(req, res, next) {
+  const token = req.headers['authorization'];
+  if (!token) return res.status(401).send({ error: 'Token não informado' });
+
+  jwt.verify(token, 'secreta123', (err, decoded) => {
+    if (err) return res.status(403).send({ error: 'Token inválido' });
+
+    req.usuarioId = decoded.id;
+    next();
+  });
+}
+
+
 app.get('/usuario', async (req, res) => {
   try {
     const usuarios = await Usuario.find();
@@ -42,11 +58,23 @@ app.get('/usuario', async (req, res) => {
 
 app.post('/usuario', async (req, res) => {
   try {
-    const usuario = new Usuario(req.body);
+    const { name, email, password, cpf, phone, image_url } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const usuario = new Usuario({
+      name,
+      email,
+      password: hashedPassword,
+      cpf,
+      phone,
+      image_url
+    });
+
     await usuario.save();
-    res.send(usuario);
+    res.status(201).send(usuario);
   } catch (err) {
-    res.status(500).send({ error: 'Erro ao criar usuário' });
+    res.status(500).send({ error: 'Erro ao criar usuário', detalhes: err.message });
   }
 });
 
@@ -77,7 +105,7 @@ app.delete('/usuario/:id', async (req, res) => {
   }
 });
 
-// ROTAS - PRESTADOR
+
 app.get('/prestador', async (req, res) => {
   try {
     const prestadores = await Prestador.find();
@@ -89,11 +117,23 @@ app.get('/prestador', async (req, res) => {
 
 app.post('/prestador', async (req, res) => {
   try {
-    const prestador = new Prestador(req.body);
+    const { name, email, password, cnpj, phone, image_url } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const prestador = new Prestador({
+      name,
+      email,
+      password: hashedPassword,
+      cnpj,
+      phone,
+      image_url
+    });
+
     await prestador.save();
-    res.send(prestador);
+    res.status(201).send(prestador);
   } catch (err) {
-    res.status(500).send({ error: 'Erro ao criar prestador' });
+    res.status(500).send({ error: 'Erro ao criar prestador', detalhes: err.message });
   }
 });
 
@@ -124,7 +164,60 @@ app.delete('/prestador/:id', async (req, res) => {
   }
 });
 
-// INICIAR SERVIDOR
+
+app.post('/login/prestador', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const prestador = await Prestador.findOne({ email });
+    if (!prestador) {
+      return res.status(401).json({ error: 'Email ou senha inválidos' });
+    }
+
+    const isMatch = await bcrypt.compare(password, prestador.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Email ou senha inválidos' });
+    }
+
+    const token = jwt.sign({ id: prestador._id }, 'secreta123', { expiresIn: '1h' });
+
+    return res.json({ message: 'Login realizado com sucesso', token });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Erro interno no servidor' });
+  }
+});
+
+
+app.post('/login/usuario', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const usuario = await Usuario.findOne({ email });
+    if (!usuario) {
+      return res.status(401).json({ error: 'Email ou senha inválidos' });
+    }
+
+    const isMatch = await bcrypt.compare(password, usuario.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Email ou senha inválidos' });
+    }
+
+    const token = jwt.sign({ id: usuario._id }, 'secreta123', { expiresIn: '1h' });
+
+    return res.json({ message: 'Login realizado com sucesso', token });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Erro interno no servidor' });
+  }
+});
+
+
+app.get('/perfil', autenticarToken, (req, res) => {
+  res.send('Bem-vindo ao perfil protegido!');
+});
+
+
 app.listen(port, () => {
   console.log(`API rodando na porta ${port}`);
 });

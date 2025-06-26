@@ -4,7 +4,7 @@ document.getElementById('inscricao-form').addEventListener('submit', async funct
     const prestador = {
         name: document.getElementById('nome').value,
         email: document.getElementById('email').value,
-        password: document.getElementById('senha').value,
+        password: document.getElementById('senha').value, 
         cnpj: document.getElementById('cnpj').value,
         phone: document.getElementById('Telefone').value, 
         image_url: document.getElementById('imagem').value

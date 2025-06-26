@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Prestador</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Estilo do botão de seta */
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .back-arrow::after {
+      content: "";
+      width: 0; 
+      height: 0; 
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 12px solid #555;
+      margin-right: 3px;
+    }
+    
+    .back-arrow:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão com link para home.html -->
+  <a href="../../components/home/home.html" class="back-arrow" title="Voltar para Home"></a>
+  
+  <div class="login-container">
+    <h2>Login Prestador</h2>
+    
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Senha"><br>
+    <button onclick="loginPrestador()">Entrar</button>
+
+    <div id="response" class="message"></div>
+    <div id="error" class="error"></div>
+  </div>
+  
+  <script src="frontprestador.js"></script>
+</body>
+</html>

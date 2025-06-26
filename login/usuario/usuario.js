@@ -1,3 +1,5 @@
+
+
 document.getElementById('inscricao-form').addEventListener('submit', async function (event) {
     event.preventDefault();
 
@@ -28,4 +30,6 @@ document.getElementById('inscricao-form').addEventListener('submit', async funct
         console.error('Erro:', error);
         alert('Erro ao conectar com o servidor.');
     }
+
+    
 });
